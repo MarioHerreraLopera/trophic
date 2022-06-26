@@ -1,6 +1,6 @@
 
 # trophic
-=====================
+-----
 
 The trophic package for R allows the estimation of trophic niche breadth and overlap and their confidence intervals at a defined level. It is based on the proposed analysis for anuran trophic niche of Herrera-Lopera et al. (Salamandra, in press).
 
