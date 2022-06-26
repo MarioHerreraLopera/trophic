@@ -45,8 +45,8 @@ for(j in 1:1){
 OUTPUT2 <- structure(OUTPUT2, names=colnames(x)[2:(it+1)])
 OUTPUT2}
 
-m.ent <- n.matrix(matriz.ent, 50)
-n.breadth(m.ent, 50)
+m.ent <- n.matrix(matriz.ent, it = 50)
+n.breadth(m.ent, it = 50)
 
 
 ### n.overlap
