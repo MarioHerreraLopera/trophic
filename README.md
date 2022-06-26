@@ -72,4 +72,4 @@ n.overlap(spA.ent, spA.ent, it = 100, method = "pianka") ## Niche overlap for sp
 n.overlap.hill(sp1.ent, sp2.ent, it = 100, order = 1) ## Niche overlap for species A and B, using order 1
 ```
 
-## For additional information contact mario.herreralopera@gmail.com
+## For additional information contact mario.herreralopera@gmail.com 
