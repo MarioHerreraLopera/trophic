@@ -1,0 +1,28 @@
+n.breadth <- function(x, it){ OUTPUT <- list()
+for(j in 1:1){
+  OUTPUT[[j]] <- matrix(0, it, 3)
+  colnames(OUTPUT[[j]]) <- c("q0", "q1", "q2")
+  rownames(OUTPUT[[j]]) <- 1:it
+  for(i in 1:it){
+    st1<-t(x)
+    VE = st1[i,]
+    OUTPUT[[j]][i,1] <- sum(VE>0)
+    Pi <- VE/sum(VE)
+    Pi <- Pi[which(Pi>0)]
+    OUTPUT[[j]][i,2]  <- exp(-sum(Pi*log(Pi)))
+    OUTPUT[[j]][i,3]  <- 1/ sum(Pi^2)
+    OUTPUT[[j]][i,][is.infinite(OUTPUT[[j]][i,])] <- 0
+  }
+}
+
+OUTPUT2 <- list()
+for(j in 1:1){
+  Mean <- colMeans(OUTPUT[[j]])
+  DS <- sqrt(diag(var(OUTPUT[[j]])))
+  IC95i=Mean-(1.96*(DS/sqrt(it)))
+  IC95s=Mean+(1.96*(DS/sqrt(it)))
+  OUTPUT2[[j]] <- data.frame(Mean=Mean, DS=DS, IC95i=IC95i, IC95s=IC95s)
+
+}
+OUTPUT2 <- structure(OUTPUT2, names=colnames(x)[2:(it+1)])
+OUTPUT2}
