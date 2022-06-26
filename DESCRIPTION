@@ -2,8 +2,7 @@ Package: trophic
 Type: Package
 Title: Trophic niche breadth and overlapping
 Version: 0.1.0
-Authors@R: person("J. Mario", "Herrera-Lopera", email = "mario.herreralopera@gmail.com",
-role = c("aut", "cre"))
+Authors@R: person("J. Mario", "Herrera-Lopera", email = "mario.herreralopera@gmail.com", role = c("aut", "cre"))
 Maintainer: Mario Herrera-Lopera <mario.herreralopera@gmail.com>
 Description: Estimates trophic niche breadth and overlap 
     with defined confidence intervals, based on resampling abundance matrices.
