@@ -11,3 +11,5 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.0), vegetarian, spaa
 Imports: vegetarian, spaa
+URL: https://github.com/MarioHerreraLopera/trophic
+BugReports: https://github.com/MarioHerreraLopera/trophic/issues
