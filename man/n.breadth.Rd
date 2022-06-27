@@ -19,6 +19,6 @@ Calculate the trophic niche breadth and 95% confidence intervals based on Hill s
 }
 \examples{
 sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a random abundance matrix
-sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix
+sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix for the species
 n.breadth(sp1.ent, it = 100)
 }

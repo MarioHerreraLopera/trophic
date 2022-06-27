@@ -2,11 +2,12 @@
 #'
 #' @param x An input matrix created with the n.matrix function or a data matrix of prey abundance.
 #' @param it To matrices generated with n.matrix, MUST be equal to columns matrix number.
+#'
 #' @return A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior 95% confidence intervals.
 #' @usage n.breadth(x, it)
 #' @examples
 #' sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a random abundance matrix
-#' sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix
+#' sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix for the species
 #' n.breadth(sp1.ent, it = 100)
 n.breadth <- function(x, it){ OUTPUT <- list()
 for(j in 1:1){

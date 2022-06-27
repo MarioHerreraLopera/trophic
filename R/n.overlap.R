@@ -4,13 +4,14 @@
 #' @param sp2 Species input matrix created with the n.matrix or a data matrix of prey abundance.
 #' @param it Desired iterations number, MUST be equal to the number of columns of both species.
 #' @param method Overlap metric used to measure the overlap between the pair of species.
+#'
 #' @return A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.
 #' @usage n.overlap(sp1, sp2, it, method = c("pianka", "schoener", "morisita"))
 #' @examples
 #' sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
 #' sp2 <- matrix(sample(0:7, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
-#' sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix for species 1
-#' sp2.ent <- n.matrix(sp2, it = 100) ## Input matrix for species 2
+#' sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix for Species 1
+#' sp2.ent <- n.matrix(sp2, it = 100) ## Input matrix for Species 2
 #' n.overlap(sp1.ent, sp2.ent, it = 100, method = "pianka") ## Pianka's overlap
 #' n.overlap(sp1.ent, sp2.ent, it = 100, method = "schoener") ## Renkonen's = Schoener overlap
 #' n.overlap(sp1.ent, sp2.ent, it = 100, method = "morisita") ## Morisita's overlap measure
