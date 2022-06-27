@@ -1,4 +1,4 @@
-#' n.overlap.hill: Calculate the trophic niche overlap for species pairs based on the Hill series framework.
+#' Calculate the trophic niche overlap and its confidence intervals for species pairs.
 #'
 #' @param sp1 Species 1 input matrix created with the n.matrix function.
 #' @param sp2 Species 2 input matrix created with the n.matrix function.

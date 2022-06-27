@@ -1,4 +1,4 @@
-#' n.breadth: Calculate the trophic niche breadth based on the Hill series.
+#' Calculate the trophic niche breadth and confidence intervals based on Hill series.
 #'
 #' @param x An input matrix created with the n.matrix function.
 #' @param it Desired iterations number. MUST be equal to the number of iterations used in the input matrix.
