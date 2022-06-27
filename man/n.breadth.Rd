@@ -18,7 +18,7 @@ A matrix of three rows and four columns, where each row corresponds to an divers
 Calculate the trophic niche breadth and 95% confidence intervals based on Hill series.
 }
 \examples{
-sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
+sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a random abundance matrix
 sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix
 n.breadth(sp1.ent, it = 100)
 }
