@@ -39,7 +39,7 @@ for(j in 1:1){
   DS <- sqrt(diag(var(OUTPUT[[j]])))
   IC95i=Mean-(1.96*(DS/sqrt(it)))
   IC95s=Mean+(1.96*(DS/sqrt(it)))
-  OUTPUT2[[j]] <- data.frame(Mean=Mean, DS=DS, IC95i=IC95i, IC95s=IC95s)
+  OUTPUT2[[j]] <- data.frame(Mean=Mean, SD=DS, IC95i=IC95i, IC95s=IC95s)
 
 }
 OUTPUT2 <- structure(OUTPUT2, names=colnames(x)[2:(it+1)])

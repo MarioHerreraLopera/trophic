@@ -3,6 +3,7 @@
 #' @param x An input matrix created with the n.matrix function.
 #' @param it Desired iterations number. MUST be equal to the number of iterations used in the input matrix.
 #' @return A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior confidence intervals.
+#' @usage n.breadth(x, it)
 #' @examples
 #' sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
 #' sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix
@@ -30,7 +31,7 @@ for(j in 1:1){
   DS <- sqrt(diag(var(OUTPUT[[j]])))
   IC95i=Mean-(1.96*(DS/sqrt(it)))
   IC95s=Mean+(1.96*(DS/sqrt(it)))
-  OUTPUT2[[j]] <- data.frame(Mean=Mean, DS=DS, IC95i=IC95i, IC95s=IC95s)
+  OUTPUT2[[j]] <- data.frame(Mean=Mean, SD=DS, IC95i=IC95i, IC95s=IC95s)
 
 }
 OUTPUT2 <- structure(OUTPUT2, names=colnames(x)[2:(it+1)])
