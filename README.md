@@ -8,6 +8,7 @@ The trophic package for R allows the estimation of trophic niche breadth and ove
 
 ## Installation
 
+-----
 You can install the development version of trophic from [GitHub](https://github.com/) with:
 
 ``` r
@@ -19,6 +20,8 @@ library(trophic)
 -----
 
 ## Citation
+-----
+
 Please cite trophic (and other R packages it depends on) by using:
 
 ```r
@@ -30,6 +33,8 @@ citation("spaa")
 -----
 
 ## Example
+
+-----
 
 The following are examples of how to estimate trophic niche breadth and trophic niche overlap for two fictitious species using the "trophic" package. The niche breadth estimation functions are based on the 0, 1 and 2 orders of the Hill series, while the package allows estimation of niche overlap using both traditional measures and those derived from the Hill series. For more information please see Herrera-Lopera et al. (Salamandra Journal, in press).
 
