@@ -14,3 +14,7 @@ Imports: vegetarian, spaa
 URL: https://github.com/MarioHerreraLopera/trophic
 BugReports: https://github.com/MarioHerreraLopera/trophic/issues
 RoxygenNote: 7.2.0
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
