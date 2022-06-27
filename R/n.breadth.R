@@ -1,7 +1,7 @@
 #' Calculate the trophic niche breadth and confidence intervals based on Hill series.
 #'
-#' @param x An input matrix created with the n.matrix function.
-#' @param it Desired iterations number. MUST be equal to the number of iterations used in the input matrix.
+#' @param x An input matrix created with the n.matrix function or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals.
+#' @param it Desired iterations number. MUST be equal to the number of iterations used in the input matrix. In case n.matrix generated matrix are not used, it MUST be equal to columns matrix number.
 #' @return A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior confidence intervals.
 #' @usage n.breadth(x, it)
 #' @examples

@@ -7,11 +7,11 @@
 n.overlap.hill(sp1, sp2, it, order = c("0", "1", "2"))
 }
 \arguments{
-\item{sp1}{Species 1 input matrix created with the n.matrix function.}
+\item{sp1}{Species 1 input matrix created with the n.matrix function or a data matrix of prey abundance consumed by a species 1, where rows correspond to prey and columns correspond to individuals.}
 
-\item{sp2}{Species 2 input matrix created with the n.matrix function.}
+\item{sp2}{Species 2 input matrix created with the n.matrix function or a data matrix of prey abundance consumed by a species 2, where rows correspond to prey and columns correspond to individuals.}
 
-\item{it}{Desired iterations number. MUST be equal to the number of iterations used in the input matrices.}
+\item{it}{Desired iterations number. MUST be equal to the number of iterations used in the input matrices. In case n.matrix generated matrices are not used, the number of columns MUST be equal for both species, and the value of it must be equal to that number of columns.}
 }
 \value{
 A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.
