@@ -9,7 +9,7 @@ n.breadth(x, it)
 \arguments{
 \item{x}{An input matrix created with the n.matrix function or a data matrix of prey abundance.}
 
-\item{it}{For matrices generated with n.matrix, MUST be equal to columns matrix number.}
+\item{it}{To matrices generated with n.matrix, MUST be equal to columns matrix number.}
 }
 \value{
 A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior 95% confidence intervals.

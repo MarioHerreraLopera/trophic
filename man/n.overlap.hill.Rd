@@ -7,9 +7,9 @@
 n.overlap.hill(sp1, sp2, it, order = c("0", "1", "2"))
 }
 \arguments{
-\item{sp1}{Species 1 input matrix created with the n.matrix function or a data matrix of prey abundance.}
+\item{sp1}{First species input matrix created with n.matrix or a data matrix of prey abundance.}
 
-\item{sp2}{Species 2 input matrix created with the n.matrix function or a data matrix of prey abundance.}
+\item{sp2}{Second species input matrix created with n.matrix or a data matrix of prey abundance.}
 
 \item{it}{Desired iterations number, MUST be equal to number of columns.}
 

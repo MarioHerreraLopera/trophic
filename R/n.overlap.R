@@ -1,7 +1,7 @@
 #' @title Calculate the trophic niche overlap and its 95% confidence intervals for species pairs.
 #'
-#' @param sp1 Species 1 input matrix created with the n.matrix function or a data matrix of prey abundance.
-#' @param sp2 Species 2 input matrix created with the n.matrix function or a data matrix of prey abundance.
+#' @param sp1 Species input matrix created with the n.matrix or a data matrix of prey abundance.
+#' @param sp2 Species input matrix created with the n.matrix or a data matrix of prey abundance.
 #' @param it Desired iterations number, MUST be equal to the number of columns of both species.
 #' @param method Overlap metric used to measure the overlap between the pair of species.
 #' @return A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.

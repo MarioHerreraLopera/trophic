@@ -7,9 +7,9 @@
 n.overlap(sp1, sp2, it, method = c("pianka", "schoener", "morisita"))
 }
 \arguments{
-\item{sp1}{Species 1 input matrix created with the n.matrix function or a data matrix of prey abundance.}
+\item{sp1}{Species input matrix created with the n.matrix or a data matrix of prey abundance.}
 
-\item{sp2}{Species 2 input matrix created with the n.matrix function or a data matrix of prey abundance.}
+\item{sp2}{Species input matrix created with the n.matrix or a data matrix of prey abundance.}
 
 \item{it}{Desired iterations number, MUST be equal to the number of columns of both species.}
 

@@ -1,7 +1,7 @@
 #' @title Calculate the trophic niche overlap and its 95% confidence intervals for species pairs based on Hill series.
 #'
-#' @param sp1 Species 1 input matrix created with the n.matrix function or a data matrix of prey abundance.
-#' @param sp2 Species 2 input matrix created with the n.matrix function or a data matrix of prey abundance.
+#' @param sp1 First species input matrix created with n.matrix or a data matrix of prey abundance.
+#' @param sp2 Second species input matrix created with n.matrix or a data matrix of prey abundance.
 #' @param it Desired iterations number, MUST be equal to number of columns.
 #' @param order Corresponds to the desired diversity order for the overlap calculation.
 #' @return A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.
