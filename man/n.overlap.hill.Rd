@@ -7,13 +7,13 @@
 n.overlap.hill(sp1, sp2, it, order = c("0", "1", "2"))
 }
 \arguments{
-\item{sp1}{First species input matrix created with n.matrix or a data matrix of prey abundance.}
+\item{sp1}{First species input matrix created with n.matrix or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals..}
 
-\item{sp2}{Second species input matrix created with n.matrix or a data matrix of prey abundance.}
+\item{sp2}{Second species input matrix created with n.matrix or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals..}
 
-\item{it}{Desired iterations number, MUST be equal to number of columns.}
+\item{it}{Desired iterations number, MUST be equal to the number of iterations used in the input matrix. In case n.matrix generated matrix are not used, it MUST be equal to columns matrix number.}
 
-\item{order}{Corresponds to the desired diversity order for the overlap calculation.}
+\item{order}{Corresponds to the desired diversity order for the overlap calculation. Orders 0, 1 and 2 can be used. It is based on the turnover complement of Jost (2007) of the Vegetarian package.}
 }
 \value{
 A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.

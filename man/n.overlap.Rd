@@ -7,13 +7,13 @@
 n.overlap(sp1, sp2, it, method = c("pianka", "schoener", "morisita"))
 }
 \arguments{
-\item{sp1}{Species input matrix created with the n.matrix or a data matrix of prey abundance.}
+\item{sp1}{Species input matrix created with the n.matrix or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals..}
 
-\item{sp2}{Species input matrix created with the n.matrix or a data matrix of prey abundance.}
+\item{sp2}{Species input matrix created with the n.matrix or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals..}
 
-\item{it}{Desired iterations number, MUST be equal to the number of columns of both species.}
+\item{it}{Desired iterations number, MUST be equal to the number of iterations used in the input matrix. In case n.matrix generated matrix are not used, it MUST be equal to columns matrix number.}
 
-\item{method}{Overlap metric used to measure the overlap between the pair of species.}
+\item{method}{Overlap metric used to measure the overlap between the pair of species. Pianka, Renkonen or Morisita can be used.}
 }
 \value{
 A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.

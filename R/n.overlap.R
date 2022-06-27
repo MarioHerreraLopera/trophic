@@ -1,9 +1,9 @@
 #' @title Calculate the trophic niche overlap and its 95 percent confidence intervals for species pairs.
 #'
-#' @param sp1 Species input matrix created with the n.matrix or a data matrix of prey abundance.
-#' @param sp2 Species input matrix created with the n.matrix or a data matrix of prey abundance.
-#' @param it Desired iterations number, MUST be equal to the number of columns of both species.
-#' @param method Overlap metric used to measure the overlap between the pair of species.
+#' @param sp1 Species input matrix created with the n.matrix or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals..
+#' @param sp2 Species input matrix created with the n.matrix or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals..
+#' @param it Desired iterations number, MUST be equal to the number of iterations used in the input matrix. In case n.matrix generated matrix are not used, it MUST be equal to columns matrix number.
+#' @param method Overlap metric used to measure the overlap between the pair of species. Pianka, Renkonen or Morisita can be used.
 #'
 #' @return A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.
 #' @usage n.overlap(sp1, sp2, it, method = c("pianka", "schoener", "morisita"))
