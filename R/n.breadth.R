@@ -1,3 +1,12 @@
+#' n.breadth: Calculate the trophic niche breadth based on the Hill series.
+#'
+#' @param x An input matrix created with the n.matrix function.
+#' @param it Desired iterations number. MUST be equal to the number of iterations used in the input matrix.
+#' @return A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior confidence intervals.
+#' @examples
+#' sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
+#' sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix
+#' n.breadth(sp1.ent, it = 100)
 n.breadth <- function(x, it){ OUTPUT <- list()
 for(j in 1:1){
   OUTPUT[[j]] <- matrix(0, it, 3)
