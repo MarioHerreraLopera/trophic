@@ -2,7 +2,7 @@
 % Please edit documentation in R/n.overlap.R
 \name{n.overlap}
 \alias{n.overlap}
-\title{n.overlap.hill: Calculate the trophic niche overlap for species pairs based on the Hill series framework.}
+\title{Calculate the trophic niche overlap and its confidence intervals for species pairs.}
 \usage{
 n.overlap(sp1, sp2, it, method = c("pianka", "schoener", "morisita"))
 }
@@ -19,7 +19,7 @@ n.overlap(sp1, sp2, it, method = c("pianka", "schoener", "morisita"))
 A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.
 }
 \description{
-n.overlap.hill: Calculate the trophic niche overlap for species pairs based on the Hill series framework.
+Calculate the trophic niche overlap and its confidence intervals for species pairs.
 }
 \examples{
 sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
