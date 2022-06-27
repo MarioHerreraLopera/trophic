@@ -1,4 +1,21 @@
-n.overlap <- function(sp1,sp2,it, method = c("pianka", "schoener", "morisita")){OUTPUT <- list()
+#' n.overlap.hill: Calculate the trophic niche overlap for species pairs based on the Hill series framework.
+#'
+#' @param sp1 Species 1 input matrix created with the n.matrix function.
+#' @param sp2 Species 2 input matrix created with the n.matrix function.
+#' @param it Desired iterations number. MUST be equal to the number of iterations used in the input matrices.
+#' @param method Overlap metric used to measure the overlap between the pair of species. Pianka, Renkonen or Morisita can be used.
+#' @return A matrix of a single row and four columns, where the first column corresponds to the mean overlap value, the second to the standard deviation (SD) and the third and fourth to the inferior and superior confidence intervals, respectively.
+#' @usage n.overlap(sp1, sp2, it, method = c("pianka", "schoener", "morisita"))
+#' @examples
+#' sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
+#' sp2 <- matrix(sample(0:7, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
+#' sp1.ent <- n.matrix(sp1, it = 100) ## Input matrix for species 1
+#' sp2.ent <- n.matrix(sp2, it = 100) ## Input matrix for species 2
+#' n.overlap(sp1.ent, sp2.ent, it = 100, method = "pianka") ## Pianka's overlap
+#' n.overlap(sp1.ent, sp2.ent, it = 100, method = "schoener") ## Renkonen's = Schoener overlap
+#' n.overlap(sp1.ent, sp2.ent, it = 100, method = "morisita") ## Morisita's overlap measure
+
+n.overlap <- function(sp1, sp2, it, method = c("pianka", "schoener", "morisita")){OUTPUT <- list()
 for(j in 1:1){
   OUTPUT[[j]] <- matrix(0, it, 1)
   colnames(OUTPUT[[j]]) <- c("Overlap")
@@ -17,7 +34,7 @@ for(j in 1:1){
   DS <- sqrt(diag(var(OUTPUT[[j]])))
   IC95i=Mean-(1.96*(DS/sqrt(it)))
   IC95s=Mean+(1.96*(DS/sqrt(it)))
-  OUT2[[j]] <- data.frame(Mean=Mean, DS=DS, IC95i=IC95i, IC95s=IC95s)
+  OUT2[[j]] <- data.frame(Mean=Mean, SD=DS, IC95i=IC95i, IC95s=IC95s)
 }
 OUT2
 }

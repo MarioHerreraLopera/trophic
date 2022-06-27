@@ -12,7 +12,7 @@
 #' sp2.ent <- n.matrix(sp2, it = 100) ## Input matrix for species 2
 #' n.overlap.hill(sp1.ent, sp2.ent, it = 100, order = 0) ## overlap by prey richness
 #' n.overlap.hill(sp1.ent, sp2.ent, it = 100, order = 1) ## overlap by equally common prey
-#'#' n.overlap.hill(sp1.ent, sp2.ent, it = 100, order = 2) ## overlap by dominant prey
+#' n.overlap.hill(sp1.ent, sp2.ent, it = 100, order = 2) ## overlap by dominant prey
 
 n.overlap.hill <- function(sp1, sp2, it, order = c(0, 1, 2)){OUTPUT <- list()
 for(j in 1:1){
