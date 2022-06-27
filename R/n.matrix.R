@@ -1,4 +1,4 @@
-#' Create input matrix for calculations of niche width and niche overlap
+#' Create input matrix with defined sample for niche width and niche overlap calculations.
 #'
 #' @param x A data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals.
 #' @param it Desired iterations number

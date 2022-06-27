@@ -2,7 +2,7 @@
 % Please edit documentation in R/n.matrix.R
 \name{n.matrix}
 \alias{n.matrix}
-\title{Create input matrix for calculations of niche width and niche overlap}
+\title{Create input matrix with defined sample for niche width and niche overlap calculations.}
 \usage{
 n.matrix(x, it)
 }
@@ -15,7 +15,7 @@ n.matrix(x, it)
 A matrix with columns = it, where each column corresponds to the random selection of an individual from the original matrix.
 }
 \description{
-Create input matrix for calculations of niche width and niche overlap
+Create input matrix with defined sample for niche width and niche overlap calculations.
 }
 \examples{
 sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix

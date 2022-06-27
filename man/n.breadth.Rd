@@ -2,20 +2,20 @@
 % Please edit documentation in R/n.breadth.R
 \name{n.breadth}
 \alias{n.breadth}
-\title{Calculate the trophic niche breadth and confidence intervals based on Hill series.}
+\title{Calculate the trophic niche breadth and 95% confidence intervals based on Hill series.}
 \usage{
 n.breadth(x, it)
 }
 \arguments{
 \item{x}{An input matrix created with the n.matrix function or a data matrix of prey abundance consumed by a species, where rows correspond to prey and columns correspond to individuals.}
 
-\item{it}{Desired iterations number. MUST be equal to the number of iterations used in the input matrix. In case n.matrix generated matrix are not used, it MUST be equal to columns matrix number.}
+\item{it}{For matrices generated with n.matrix, MUST be equal to the number of iterations used in the input matrix. In case n.matrix generated matrix are not used, it MUST be equal to columns matrix number.}
 }
 \value{
-A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior confidence intervals.
+A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior 95% confidence intervals.
 }
 \description{
-Calculate the trophic niche breadth and confidence intervals based on Hill series.
+Calculate the trophic niche breadth and 95% confidence intervals based on Hill series.
 }
 \examples{
 sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a Random abundance matrix
