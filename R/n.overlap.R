@@ -1,4 +1,4 @@
-#' @title Calculate the trophic niche overlap and its 95% confidence intervals for species pairs.
+#' @title Calculate the trophic niche overlap and its 95 percent confidence intervals for species pairs.
 #'
 #' @param sp1 Species input matrix created with the n.matrix or a data matrix of prey abundance.
 #' @param sp2 Species input matrix created with the n.matrix or a data matrix of prey abundance.

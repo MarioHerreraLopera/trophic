@@ -2,7 +2,7 @@
 % Please edit documentation in R/n.breadth.R
 \name{n.breadth}
 \alias{n.breadth}
-\title{Calculate the trophic niche breadth and 95% confidence intervals based on Hill series.}
+\title{Calculate the trophic niche breadth and 95 percent confidence intervals based on Hill series.}
 \usage{
 n.breadth(x, it)
 }
@@ -12,10 +12,10 @@ n.breadth(x, it)
 \item{it}{To matrices generated with n.matrix, MUST be equal to columns matrix number.}
 }
 \value{
-A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior 95% confidence intervals.
+A matrix of three rows and four columns, where each row corresponds to an diversity order (i.e. q0, q1 and q2) and the columns correspond, in order, to the mean of the estimated value, the standard deviation (SD) and the inferior and superior 95 percent confidence intervals.
 }
 \description{
-Calculate the trophic niche breadth and 95% confidence intervals based on Hill series.
+Calculate the trophic niche breadth and 95 percent confidence intervals based on Hill series.
 }
 \examples{
 sp1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## a random abundance matrix
