@@ -1,0 +1,145 @@
+---
+title: 'trophic: Trophic niche breadth and overlapping'
+author: "J. Mario Herrera-Lopera"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette: default
+  rmarkdown::html_vignette(tabset = T): default
+vignette: |
+  %\VignetteIndexEntry{trophic} %\VignetteEngine{knitr::rmarkdown} %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## 1. Introduction
+
+`trophic` package is designed to: (i) facilitate the estimation of trophic niche breadth and overlap within the Hill series framework (see Herrera-Lopera _et al_. Salamandra, _in press_), and (ii) facilitate the estimation of confidence intervals for measures of trophic niche breadth, and trophic niche overlap, the latter both within the Hill series framework and as traditional measures.
+
+The package `trophic` presents two main types of functions: (i) creation of input matrices, which are used for the computation of trophic niche breadth and overlap (**see alternative in n.matrix section**), and (ii) the trophic niche breadth and overlap estimation functions. It is important to note that the number of iterations used in the creation of matrices MUST be used for the calculation of trophic niche breadth and overlap. 
+
+This package was designed to deal with amphibian trophic ecology, however, it can be used to work with the trophic ecology of other taxonomic groups taking into account the general recommendations mentioned in Herrera-Lopera _et al_., (Salamandra, _in press_).
+
+The package `trophic` can be installed from GitHub using `devtools`: 
+
+```{r}
+# install.packages("devtools")
+
+devtools::install_github("MarioHerreraLopera/trophic")
+
+library(trophic)
+```
+
+The package uses functions from the `spaa` and `vegetarian` packages, which are available in R CRAN.
+
+## 2. `n.matrix`: Create input matrices
+
+The `n.matrix` function begins with an abundance matrix, where the rows correspond to prey and the columns correspond to individuals of a species. It selects individuals at random and builds a new matrix with as many columns as iterations are specified. This method artificially increases the sample size of the matrix and should be used with caution for that reason. **If it is not desired to increase the sample size artificially**, the abundance matrix can be used directly in the niche breadth and overlap measures by setting `it = ncol(x)`, where x is the matrix name. Using the latter method with the `n.overlap` or `n.overlap.hill` function, it should be noted that if comparing two or more specimens they **MUST** have the same sample size.
+
+To exemplify its use, we will generate two matrices (species) with 10 prey categories (rows) and 10 individuals (columns) each.
+
+
+```{r setup}
+species_1 <- matrix(sample(0:5, 100, replace = T), nrow = 10, ncol = 10) ## First species
+
+species_1
+
+species_2 <- matrix(sample(0:7, 100, replace = T), nrow = 10, ncol = 10) ## Second species
+
+species_2
+```
+
+These matrices could be used directly in the `n.breadth`, `n.overlap` or `n.overlap.hill` functions using `it = n.col(species_1)` or `it = n.col(species_2)`. Or we could increase your sample size through random selection of your individuals with the `n.matrix` function as well:
+
+```{r}
+sp1.ent <- n.matrix(species_1, it = 30)
+sp1.ent
+
+sp2.ent <- n.matrix(species_2, it = 30)
+sp2.ent
+```
+
+The advantage of using the matrices generated with `n.matrix` over the original matrices is that the confidence intervals obtained will be narrower, however, the original matrices will be more realistic. The optimal number of sample size should be taken into account.
+
+## 3. `n.breadth`: Estimating trophic niche breadth
+
+This function has the function of calculating the trophic niche breadth based on the Hill series framework (see Herrera-Lopera _et al_., Salamandra, _in press_., for interpretation of the results). The mean value of the trophic niche breadth, the standard deviation and the upper and lower 95% confidence intervals are obtained.
+
+Two types of input matrices can be used: (i) Matrices generated with the `n.matrix` function, in which case the value of it MUST be equal to the value of it used in the `n.matrix` function, or (ii) Abundance matrices, where the rows correspond to prey categories and the columns correspond to individuals of the species, in which case the value of it must be equal to the value of columns (individuals) of the matrix. Both cases are exemplified below:
+
+```{r}
+## Using n.matrix generated matrices
+
+n.breadth(sp1.ent, it = 30) ## Species 1
+
+n.breadth(sp1.ent, it = 30) ## Species 2
+
+## Using abundance original matrices
+
+n.breadth(species_1, it = ncol(species_1)) ## Species 1
+
+n.breadth(species_2, it = ncol(species_2)) ## Species 2
+
+```
+
+The decision to use one or another type of matrix depends on the objectives of each study. Using the matrices derived from `n.matrix` decreases the size of the confidence intervals, however it offers a less realistic estimate. Using the original abundance matrices increases the size of the confidence intervals, however their result are more realistic.
+
+## 4. `n.overlap`: Estimating trophic niche overlap using traditional measures
+
+This function estimates the trophic niche overlap between a pair of species and their 95% confidence intervals. The Pianka, Morisita or Renkonen ( equal to Schoener) measures can be used. An informed decision on which measure to use according to the characteristics of your data can be made by reading the final considerations of Herrera-Lopera _et al_., Salamandra, _in press_. The mean niche breadth overlap value, the standard deviation and the upper and lower 95% confidence intervals are obtained.
+
+Two types of input matrices can be used, however, in both cases both matrices MUST have the same number of columns: (i) Matrices generated with the `n.matrix` function, in which case the value of it MUST be equal to the value of it used in the `n.matrix` function, or (ii) Abundance matrices, where the rows correspond to prey categories and the columns correspond to individuals of the species, in which case the value of it must be equal to the value of columns (individuals) of the matrices. Both cases are exemplified below:
+
+```{r}
+## Using n.matrix generated matrices
+
+n.overlap(sp1.ent, sp2.ent, it = 30, method = "pianka") ## Species 1 and 2 Pianka's trophic niche overlap
+
+n.overlap(sp1.ent, sp2.ent, it = 30, method = "schoener") ## Species 1 and 2 Renkonen's trophic niche overlap
+
+n.overlap(sp1.ent, sp2.ent, it = 30, method = "morisita") ## Species 1 and 2 Morisita's trophic niche overlap
+
+## Using abundance original matrices
+
+n.overlap(species_1, species_2, it = ncol(species_1), method = "pianka") # Pianka's trophic niche overlap
+
+n.overlap(species_1, species_2, it = ncol(species_1), method = "schoener") # Renkonen's trophic niche overlap
+
+n.overlap(species_1, species_2, it = ncol(species_1), method = "morisita") ## Morisita's trophic niche overlap
+```
+
+The decision to use one or another type of matrix depends on the objectives of each study. Using the matrices derived from `n.matrix` decreases the size of the confidence intervals, however it offers a less realistic estimate. Using the original abundance matrices increases the size of the confidence intervals, however their result are more realistic.
+
+## 5. `n.overlap.hill`: Estimating trophic niche overlap using Hill's series framework
+
+This function estimates the trophic niche overlap between a pair of species and their 95% confidence intervals. The diversity orders 0 = overlap by prey richness, 1 = overlap by effective number of equally common prey and 2 = overlap by effective number of dominant prey can be used. For more information see Herrera-Lopera _et al_. (Salamandra, _in press_.). The mean niche breadth overlap value, the standard deviation and the upper and lower 95% confidence intervals are obtained.
+
+Two types of input matrices can be used, however, in both cases both matrices MUST have the same number of columns: (i) Matrices generated with the `n.matrix` function, in which case the value of it MUST be equal to the value of it used in the `n.matrix` function, or (ii) Abundance matrices, where the rows correspond to prey categories and the columns correspond to individuals of the species, in which case the value of it must be equal to the value of columns (individuals) of the matrices. Both cases are exemplified below:
+
+```{r}
+
+## Using n.matrix generated matrices
+
+n.overlap.hill(sp1.ent, sp2.ent, it = 30, order = 0) ## overlap by prey richness
+
+n.overlap.hill(sp1.ent, sp2.ent, it = 30, order = 1) ## overlap by effective number of equally common prey
+
+n.overlap.hill(sp1.ent, sp2.ent, it = 30, order = 2) ## overlap by effective number of dominant prey
+
+## Using abundance original matrices
+
+n.overlap.hill(species_1, species_2, it = ncol(species_1), order = 0) ## overlap by prey richness
+
+n.overlap.hill(species_1, species_2, it = ncol(species_1), order = 1) ## overlap by effective number of equally common prey
+
+n.overlap.hill(species_1, species_2, it = ncol(species_1), order = 2) ## overlap by effective number of dominant prey
+
+```
+
+The decision to use one or another type of matrix depends on the objectives of each study. Using the matrices derived from `n.matrix` decreases the size of the confidence intervals, however it offers a less realistic estimate. Using the original abundance matrices increases the size of the confidence intervals, however their result are more realistic.
+
+**For additional information see Herrera-Lopera _et al_. (Salamandra, _in press_.) or contact with authors.**
